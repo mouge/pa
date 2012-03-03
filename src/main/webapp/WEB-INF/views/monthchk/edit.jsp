@@ -14,9 +14,11 @@
 	
 	var leftcss={"float":"left","width":"22px"};
 	var leftAndMargin={"float":"left","margin-left":"10px","width":"22px"};
-	var taskSize={"width":"580px"};
+	var taskSize={"width":"530px"};
 	var taskMaxlength={"maxlength":"50"};
 	var hourCss={"width":"40px"};
+	var summaryCss={"width":"530","vertical-align":"top"};
+	var summaryHeight={minHeight:60, maxHeight:160 };
 	
 	var rowClick=function (){
 		$("#tbl tr td:last-child :button").hide();
@@ -72,12 +74,13 @@
 		$("#tbl tr").click(rowClick);
 		$(":input[name='monthChkItems_task']").css(taskSize).attr(taskMaxlength);
 		$(":input[name='monthChkItems_workhour']").css(hourCss);
+		$("textarea[name='monthChkItems_summary']").css(summaryCss).css({height:60,"overflow":"hidden"}).textareaAutoHeight(summaryHeight);
 		$(".addLast").click(function(){
  			var newtr=tr.clone();
 			newtr.click(rowClick);
 			$("#tbl").append(newtr); 
 			reIndexTable();
-		})
+		});
 	});
 
 	function add(obj) {
@@ -170,7 +173,10 @@
 				</select>
 			</td>
 			<td>
-				<input type="text" name="monthChkItems_task" value="${item.task}" />
+			<div>
+				<div>标题：<input type="text" name="monthChkItems_task" value="${item.task}" /></div>
+				<div>小结：<textarea name="monthChkItems_summary" ></textarea></div>
+			</div>
 			</td>
 			<td>
 				<input type="text" name="monthChkItems_workhour" value="${item.workhour}" />

@@ -75,10 +75,10 @@ public class UrlFilter implements Filter {
         String method=req.getMethod();
         logger.info(method+":"+url);
          
-//        if(true){
-//        	chain.doFilter(request, response);
-//        	return;
-//        }
+        if(true){
+        	chain.doFilter(request, response);
+        	return;
+        }
         
         if(isNofilterUrl(url)){
         	chain.doFilter(request, response);
