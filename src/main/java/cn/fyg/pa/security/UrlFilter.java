@@ -19,7 +19,10 @@ import org.slf4j.LoggerFactory;
 import cn.fyg.pa.page.LoginRet;
 import cn.fyg.pa.tool.SessionUtil;
 
-/**  TODO 这里有重复逻辑
+
+/**  
+ * insert a line
+ * TODO 这里有重复逻辑
  * 用户访问权限的过滤器  
  * @author viano  
  */  
