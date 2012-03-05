@@ -9,6 +9,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<activiti.version>5.8</activiti.version>
 		<jetty.version>6.1.4</jetty.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<slf4j.version>1.5.10</slf4j.version>
@@ -18,7 +19,22 @@
 
 	<dependencies>
 
-
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <version>1.2.132</version>
+           <scope>test</scope>
+        </dependency>
 		<!-- Bean Validation Dependencies -->
 
 		<dependency>
@@ -195,6 +211,11 @@
 	</dependencies>
 
 	<repositories>
+	    <repository>
+            <id>activiti</id>
+            <name>Activiti Repository</name>
+            <url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url>
+        </repository>
 		<!-- JBoss Repository used for Java EE 6 pieces -->
 		<repository>
 			<id>repository.jboss.org</id>

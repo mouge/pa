@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.fyg.pa.bpmn.MyTask;
 import cn.fyg.pa.page.LoginPage;
 import cn.fyg.pa.page.LoginRet;
 import cn.fyg.pa.service.PersonService;
 import cn.fyg.pa.tool.Dispatcher;
 import cn.fyg.pa.tool.SessionUtil;
+
+
 
 
 @Controller
@@ -27,11 +30,17 @@ public class LoginCtl {
 	@Autowired
 	private PersonService personService;
 	
+	@Autowired
+	private MyTask task;
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ModelAndView getLogin() {
 		logger.info("getLogin");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("login");
+		task.init();
+		mav.addObject("task",task);
+
 		return mav;
 	}
 	

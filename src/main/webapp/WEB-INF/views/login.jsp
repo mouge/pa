@@ -36,5 +36,7 @@ text-align:center;
  <input type="button" value="忘记密码" " onclick="javascript:window.open('/pa/fetchcsr','_self')"/>
 </form>
 </div> 
+<div>${task.name}<br/>
+${task.task}</div>
 </body>
 </html>
